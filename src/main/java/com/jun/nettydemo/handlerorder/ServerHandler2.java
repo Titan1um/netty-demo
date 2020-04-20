@@ -1,20 +1,14 @@
-package com.jun.nettydemo.timer;
+package com.jun.nettydemo.handlerorder;
 
-import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.util.ReferenceCountUtil;
 
-import java.util.Date;
-
-public class TimeClientHandler extends ChannelInboundHandlerAdapter {
+public class ServerHandler2 extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
-        UnixTime m = (UnixTime) msg;
-        System.out.println(m.toString());
-        ReferenceCountUtil.release(msg);
-        ctx.close();
+        System.out.println(2);
+        ctx.fireChannelRead(msg);
     }
 
     @Override
@@ -22,5 +16,4 @@ public class TimeClientHandler extends ChannelInboundHandlerAdapter {
         cause.printStackTrace();
         ctx.close();
     }
-
 }

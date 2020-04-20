@@ -23,7 +23,7 @@ public class TimeServerHandler extends ChannelInboundHandlerAdapter {
 //            }
 //        });
 
-        //user pojo
+        //use pojo
         ChannelFuture f = ctx.writeAndFlush(new UnixTime());
         f.addListener(ChannelFutureListener.CLOSE);
     }

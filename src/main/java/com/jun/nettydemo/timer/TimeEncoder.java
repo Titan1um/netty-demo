@@ -24,3 +24,4 @@ public class TimeEncoder extends MessageToByteEncoder<UnixTime> {
         out.writeInt((int) msg.getValue());
     }
 }
+
